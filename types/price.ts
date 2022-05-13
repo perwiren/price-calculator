@@ -1,4 +1,5 @@
 export interface IPrice {
+    sku: string;
     recommendedRetailPrice: number;
     priceAmount: number;
     discount: number;
