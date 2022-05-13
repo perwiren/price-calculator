@@ -1,4 +1,4 @@
-import { Price } from "../../interfaces/price";
+import { Price } from "../../types/price";
 
 export const mockPrice1 = {
     sku: "CBA321",
