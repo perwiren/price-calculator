@@ -39,3 +39,5 @@ export const mockPrice5 = {
     discount: 20,
     discountAmount: 1000
 } as Price;
+
+export const mockPrices = [mockPrice1, mockPrice2, mockPrice3, mockPrice4, mockPrice5];
