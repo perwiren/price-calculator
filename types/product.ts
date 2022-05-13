@@ -1,7 +1,7 @@
-import { Price } from "./price";
+import { IPrice } from "./price";
 
-export interface Product {
+export interface IProduct {
     sku: string;
     name: string;
-    price: Price;
+    price: IPrice;
 }

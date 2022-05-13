@@ -1,7 +1,7 @@
-import { Product } from "../../types/product";
+import { IProduct } from "../../types/product";
 import { mockPrice1, mockPrice2, mockPrice3, mockPrice4, mockPrice5 } from "./mockPrices";
 
-export const mockProducts = [
+export const mockProducts: IProduct[] = [
     {
         name: "En nice produkt",
         sku: "ABC123",
@@ -27,4 +27,4 @@ export const mockProducts = [
         sku: "123456789",
         price: mockPrice5
     },
-] as Product[];
+];

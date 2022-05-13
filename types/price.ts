@@ -1,4 +1,4 @@
-export interface Price {
+export interface IPrice {
     recommendedRetailPrice: number;
     priceAmount: number;
     discount: number;

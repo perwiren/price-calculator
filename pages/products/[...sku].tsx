@@ -4,43 +4,23 @@ import {
   NextPage,
 } from "next";
 import { getPrices } from "api/priceApi";
-import { Price } from "types/price";
+import { IPrice } from "types/price";
+import Price from "components/Price";
 
 const Product: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ prices }) => {
   return (
     <div>
-      PRICEs:{" "}
       {prices &&
-        prices.map(
-          (
-            {
-              recommendedRetailPrice,
-              priceAmount,
-              currency,
-              discount,
-              discountAmount,
-            },
-            index
-          ) => (
-            <p key={`price-$index`}>
-              {`Pris: ${priceAmount} ${currency}`}
-              <br />
-              {`Rek: ${recommendedRetailPrice} ${currency}`}
-              <br />
-              {`Rabatt: ${discountAmount} ${currency}`}
-              <br />
-              {`Rabatt %: ${discount}`}
-              <br />
-            </p>
-          )
-        )}
+        prices.map((price, index) => (
+          <Price key={`price-${index}`} {...price} />
+        ))}
     </div>
   );
 };
 
-type Props = { prices: Price[] };
+type Props = { prices: IPrice[] };
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({
   params,

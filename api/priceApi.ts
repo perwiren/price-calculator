@@ -1,6 +1,6 @@
 import { mockPrices } from "../data/mocks/mockPrices";
-import { Price } from "../types/price";
+import { IPrice } from "../types/price";
 
-export const getPrices = (skus: string[], priceCode: string): Price[] => {
+export const getPrices = (skus: string[], priceCode: string): IPrice[] => {
     return mockPrices;
 }
