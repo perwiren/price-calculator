@@ -1,12 +1,16 @@
 import React from "react";
+import Footer from "./Footer";
 import Header from "./Header";
 
 type Props = { children: React.ReactNode };
 
 const Layout: React.FC<Props> = ({ children }) => (
-  <div>
+  <div className="flex flex-col h-screen justify-between">
     <Header />
-    {children}
+    <main className="container mb-auto mt-4 mx-auto px-4">
+      {children}
+    </main>
+    <Footer />
   </div>
 );
 
