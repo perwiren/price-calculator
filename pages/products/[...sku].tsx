@@ -6,16 +6,29 @@ import {
 import { getPrices } from "api/priceApi";
 import { IPrice } from "types/price";
 import Price from "components/Price";
+import ProductPlaceHolderSvg from "/public/product-placeholder.svg";
 
 const Product: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ prices }) => {
   return (
     <div>
-      {prices &&
-        prices.map((price, index) => (
-          <Price key={`price-${index}`} {...price} />
-        ))}
+      <div className="flex flex-wrap">
+        <div className="grow flex items-center justify-center w-1/3 bg-slate-50 overflow-hidden">
+          <ProductPlaceHolderSvg />
+        </div>
+        <div className="flex flex-wrap w-full md:w-2/3">
+          {prices &&
+            prices.map((price, index) => (
+              <div
+                key={`price-${index}`}
+                className="w-[calc(33.3333%-10px)] m-[5px]"
+              >
+                <Price {...price} />
+              </div>
+            ))}
+        </div>
+      </div>
     </div>
   );
 };
@@ -32,7 +45,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     };
   }
 
-  const prices = getPrices([sku], "");
+  const prices = await getPrices([sku], "");
 
   return {
     props: { prices },
