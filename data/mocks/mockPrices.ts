@@ -1,6 +1,7 @@
 import { Price } from "../../interfaces/price";
 
 export const mockPrice1 = {
+    sku: "CBA321",
     currency: "SEK",
     recommendedRetailPrice: 199,
     priceAmount: 199,
@@ -9,6 +10,7 @@ export const mockPrice1 = {
 } as Price;
 
 export const mockPrice2 = {
+    sku: "QWERTY",
     currency: "SEK",
     recommendedRetailPrice: 500,
     priceAmount: 300,
@@ -17,6 +19,7 @@ export const mockPrice2 = {
 } as Price;
 
 export const mockPrice3 = {
+    sku: "WQEER123",
     currency: "NOK",
     recommendedRetailPrice: 100,
     priceAmount: 60,
@@ -25,6 +28,7 @@ export const mockPrice3 = {
 } as Price;
 
 export const mockPrice4 = {
+    sku: "ABC123",
     currency: "EUR",
     recommendedRetailPrice: 50,
     priceAmount: 45,
@@ -33,6 +37,7 @@ export const mockPrice4 = {
 } as Price;
 
 export const mockPrice5 = {
+    sku: "QWE321",
     currency: "SEK",
     recommendedRetailPrice: 5000,
     priceAmount: 4000,
