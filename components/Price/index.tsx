@@ -8,19 +8,19 @@ const Price: React.FC<IPrice> = ({
   discount,
   discountAmount,
 }) => (
-  <div className="bg-slate-50 inline-block min-h-full w-full">
-    <h4 className="p-2 mb-2">{sku}</h4>
+  <div className="min-h-full w-full p-2">
+    <h4 className="mb-1">{sku}</h4>
     <p
-      className={`p-2 mb-2 ${discountAmount && "line-through"}`}
+      className={`mb-1 ${discountAmount && "line-through"}`}
     >{`${priceAmount} ${currency}`}</p>
     {!!discountAmount && (
-      <p className="p-2 mb-2">{`${discountAmount} ${currency}`}</p>
+      <p className="mb-1">{`${discountAmount} ${currency}`}</p>
     )}
-    <p className="p-2 mb-2">
+    <p className="mb-1">
       {recommendedRetailPrice && recommendedRetailPrice}
     </p>
     {!!discount && !!discountAmount && (
-      <p className="p-2 mb-2">{`${discount}% i rabatt`}</p>
+      <p className="mb-1">{`${discount}% i rabatt`}</p>
     )}
   </div>
 );

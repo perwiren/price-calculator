@@ -9,5 +9,5 @@ export const getPrices = async (skus: string[], priceCode: string): Promise<IPri
     // } catch (e) {
     //     return Promise.reject(e);
     // }
-    return mockPrices;
+    return mockPrices.filter(mp => skus.some(sku => sku === mp.sku));
 }

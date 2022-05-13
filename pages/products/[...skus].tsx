@@ -14,15 +14,17 @@ const Product: NextPage<
   return (
     <div>
       <div className="flex flex-wrap">
-        <div className="grow flex items-center justify-center w-1/3 bg-slate-50 overflow-hidden">
-          <ProductPlaceHolderSvg />
+        <div className="md:w-1/3 max-w-[300px] h-[300px] pb-[0.5rem]">
+          <div className="flex items-center justify-center overflow-hidden w-full h-full bg-slate-50">
+            <ProductPlaceHolderSvg />
+          </div>
         </div>
-        <div className="flex flex-wrap w-full md:w-2/3">
+        <div className="md:w-2/3 grow flex flex-wrap">
           {prices &&
             prices.map((price, index) => (
               <div
                 key={`price-${index}`}
-                className="w-[calc(33.3333%-10px)] m-[5px]"
+                className="w-[calc(33.3333%-0.5rem)] ml-[0.5rem] mb-[0.5rem] bg-slate-50"
               >
                 <Price {...price} />
               </div>
@@ -38,14 +40,16 @@ type Props = { prices: IPrice[] };
 export const getServerSideProps: GetServerSideProps<Props> = async ({
   params,
 }) => {
-  const sku = params?.sku as string;
-  if (!sku) {
+  if (!params?.skus) {
     return {
       notFound: true,
     };
   }
 
-  const prices = await getPrices([sku], "");
+  const skus = Array.isArray(params.skus)
+    ? params.skus
+    : Array.from(params.skus);
+  const prices = await getPrices(skus, "");
 
   return {
     props: { prices },
