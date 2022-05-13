@@ -1,6 +1,7 @@
 export interface Price {
     recommendedRetailPrice: number;
+    priceAmount: number;
+    discount: number;
     discountAmount: number;
-    price: number;
     currency: string;
 }
