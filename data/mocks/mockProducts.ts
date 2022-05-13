@@ -1,4 +1,4 @@
-import { Product } from "../../interfaces/product";
+import { Product } from "../../types/product";
 import { mockPrice1, mockPrice2, mockPrice3, mockPrice4, mockPrice5 } from "./mockPrices";
 
 export const mockProducts = [
