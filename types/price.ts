@@ -1,4 +1,4 @@
-export interface Price {
+export interface IPrice {
     sku: string;
     recommendedRetailPrice: number;
     priceAmount: number;
