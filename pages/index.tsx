@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 
-const Home: NextPage = () => {
-  return <div>PRICE CALCULATOR</div>;
+type Props = {};
+
+const Home: NextPage<Props> = () => {
+  return <div>PRICE CALCULATOR HOME</div>;
 };
 
 export default Home;
