@@ -4,7 +4,7 @@ const Price: React.FC<IPrice> = ({
   sku,
   recommendedRetailPrice,
   priceAmount,
-  currency,
+  currency = "SEK",
   discount,
   discountAmount,
 }) => (
@@ -12,13 +12,13 @@ const Price: React.FC<IPrice> = ({
     <h4 className="mb-1">{sku}</h4>
     <p
       className={`mb-1 ${discountAmount && "line-through"}`}
-    >{`${priceAmount} ${currency}`}</p>
-    {!!discountAmount && (
-      <p className="mb-1">{`${discountAmount} ${currency}`}</p>
-    )}
-    <p className="mb-1">
-      {recommendedRetailPrice && recommendedRetailPrice}
+    >{`${recommendedRetailPrice} ${currency}`}</p>
+    <p className={`mb-1 ${discountAmount && "text-red-500"}`}>
+    {`${priceAmount} ${currency}`}
     </p>
+    {!!discountAmount && (
+      <p className="mb-1">{`${discountAmount} ${currency}`} avdraget</p>
+    )}
     {!!discount && !!discountAmount && (
       <p className="mb-1">{`${discount}% i rabatt`}</p>
     )}
