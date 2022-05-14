@@ -6,7 +6,7 @@ import {
 import { getPrices } from "api/priceApi";
 import { IPrice } from "types/price";
 import Price from "components/Price";
-import ProductPlaceHolderSvg from "/public/product-placeholder.svg";
+import ProductPlaceHolderSvg from "public/product-placeholder.svg";
 
 const Product: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
@@ -16,7 +16,7 @@ const Product: NextPage<
       <div className="flex flex-wrap">
         <div className="md:w-1/3 max-w-[300px] h-[300px] pb-[0.5rem]">
           <div className="flex items-center justify-center overflow-hidden w-full h-full bg-slate-50">
-            <ProductPlaceHolderSvg />
+            <ProductPlaceHolderSvg className="stroke-blue-500" />
           </div>
         </div>
         <div className="md:w-2/3 grow flex flex-wrap">
@@ -50,6 +50,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     ? params.skus
     : Array.from(params.skus);
   const prices = await getPrices(skus, "");
+  if (!prices || prices.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: { prices },

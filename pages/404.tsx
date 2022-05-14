@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import NotFoundSvg from "/public/404.svg";
+import NotFoundSvg from "public/404.svg";
 
 const NotFound: NextPage = () => {
   return (
